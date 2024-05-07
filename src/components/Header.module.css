@@ -1,7 +1,11 @@
 .header{  
-    width: 100%;
-  
+    width: 100%;  
 }
+
+.header h1 {
+  color: var(--bg-color-secondary);
+}
+
 
 .nav {
   display: flex;

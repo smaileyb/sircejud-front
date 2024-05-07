@@ -17,7 +17,6 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <div className="App">
-          <Header />
           <main className="AppBody">{children}</main>
           {/* Footer */}
         </div>

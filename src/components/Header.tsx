@@ -10,7 +10,10 @@ export default async function Header() {
         </Link>
 
         <Link className={styles.login} href={'/login'}>
-          Login / Criar
+          Login / Registro
+        </Link>
+        <Link className={styles.login} href={'/contact'}>
+          Contato
         </Link>
       </nav>
     </header>
