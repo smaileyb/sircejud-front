@@ -1,0 +1,76 @@
+.sideMenu {
+  padding: 1rem;
+}
+
+.logo {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--bg-color-secondary);
+  text-align: center;
+}
+
+.searchBar{
+  padding: 1rem 0;  
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.searchBar input {  
+  border: 2px solid var(--bg-color-card);
+  border-radius: 5px;
+  font-size: 0.875rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.rulingsList {
+  font-size: 0.875rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 450px;
+}
+
+.rulingsList::-webkit-scrollbar {
+  width: 10px;
+  background: var(--bg-color-main);
+  
+}
+
+.rulingsList::-webkit-scrollbar-thumb {
+  background: var(--color-main);
+  border-radius: 3px; 
+}
+
+.rulingsList::-webkit-scrollbar-track {
+  background:var(--bg-color-main);
+}
+
+.rulingsList li {
+  padding: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.rulingsList li:global(.active){
+  background-color: var(--bg-selected-main);
+  border-radius: 5px;
+}
+
+.rulingsList li::before {
+  border-radius: 50%;  
+  content: "";
+  display: block;
+  height: 8px;
+  width: 8px;
+  background-color: #48F98A;
+  flex-shrink: 0;
+}

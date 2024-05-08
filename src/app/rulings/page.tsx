@@ -1,7 +1,5 @@
+import RulingsContent from '@/components/rulings/Rulings-content'
+
 export default async function Rulings() {
-  return (
-    <main>
-      <h1>Rulings</h1>
-    </main>
-  )
+  return <RulingsContent id="0" />
 }

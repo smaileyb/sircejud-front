@@ -37,6 +37,12 @@ export function RulingPOST() {
     url: `${ApiUrl}/rulings`
   }
 }
+// GET ALL RULINGS
+export function RulingGET(id: string) {
+  return {
+    url: `${ApiUrl}/rulings/${id}`
+  }
+}
 // UPDATE RULING BY ID
 export function RulingUPDATE(id: string) {
   return {
