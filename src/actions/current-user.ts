@@ -1,36 +1,30 @@
 'use server'
 
-import { RulingGET } from '@/functions/api'
+import { CurrentUser } from '@/functions/api'
 import apiError from '@/functions/api-error'
 import { cookies } from 'next/headers'
 
-export interface Ruling {
+export interface IUser {
   id: number
-  title: string
-  content: string
-  User: {
-    name: string
-  }
+  name: string
+  email: string
+  password: string
 }
 
-export default async function ruling(id: string) {
+export default async function loggedUser() {
   try {
     const token = cookies().get('token')?.value
     if (!token) throw new Error('Acesso negado.')
-    const { url } = RulingGET(id)
+    const { url } = CurrentUser()
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`
-      },
-      next: {
-        revalidate: 60
       }
     })
 
-    if (!response.ok)
-      throw new Error('Erro na busca dos entendimentos no banco de dados.')
-    const data = (await response.json()) as Ruling
+    if (!response.ok) throw new Error('Erro na identificação do usuário.')
+    const data = (await response.json()) as IUser
 
     return { data, ok: true, error: '' }
   } catch (error: unknown) {

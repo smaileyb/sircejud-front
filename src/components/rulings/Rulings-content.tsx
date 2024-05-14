@@ -1,21 +1,58 @@
-import ruling from '@/actions/rulling-by-id'
+import ruling from '@/actions/ruling-by-id'
 import styles from './Rulings-content.module.css'
+import Link from 'next/link'
+import EditIcon from '@/icons/edit-icon'
+import RulingDeleteButton from './Rulings-delete'
 
 export default async function RulingsContent({ id }: { id: string }) {
-  const { data } = await ruling(id)
-
-  return (
-    <section className={styles.content}>
-      <div className={styles.titleContainer}>
-        {!data ? (
-          <h1>Clique no entendimento que deseja visualizar</h1>
-        ) : (
-          <h1>{data.title}</h1>
-        )}
-      </div>
-      <div className={styles.contentContainer}>
-        <p>{data?.content}</p>
-      </div>
-    </section>
-  )
+  if (id !== '0') {
+    const { data } = await ruling(id)
+    const lastUpdate = new Date(data?.updatedAt as string)
+    return (
+      <section className={styles.content}>
+        <div className={styles.titleContainer}>
+          <h1 className="animeLeft">{data?.title}</h1>
+        </div>
+        <div className={styles.contentContainer}>
+          <p className="animeLeft">{data?.content}</p>
+        </div>
+        <div className={styles.userContainer}>
+          <p className="animeLeft">
+            Última atualização feita por {data?.User.name}, em{' '}
+            {lastUpdate.toLocaleDateString()}
+          </p>
+        </div>
+        <div className={styles.iconsContainer}>
+          <Link href={`/rulings/${id}/edit`} className={styles.icon}>
+            <EditIcon />
+            Editar
+          </Link>
+          <RulingDeleteButton id={id} />
+        </div>
+      </section>
+    )
+  } else {
+    return (
+      <section className={styles.content}>
+        <div className={styles.titleContainer}>
+          <h1>Seja Bem-vindo ao SIRCE-JUD</h1>
+        </div>
+        <div className={styles.contentContainer}>
+          <p
+            className="animeLeft"
+            style={{ fontSize: '1.25rem', marginBottom: '1rem' }}
+          >
+            O SIRCE-JUD é um sistema interno de registro e consulta de
+            entendimentos judiciais que visa facilitar o dia a dia do magistrado
+            e de sua assessoria, propiciando fácil acesso à informação relevante
+            e ao trabalho em equipe.{' '}
+          </p>
+          <p className="animeLeft">
+            Para iniciar, cadastre um entendimento ou clique nas opções
+            mostradas ao lado.
+          </p>
+        </div>
+      </section>
+    )
+  }
 }

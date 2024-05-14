@@ -1,23 +1,25 @@
 'use server'
 
-import { RulingsGET } from '@/functions/api'
+import { RulingGET } from '@/functions/api'
 import apiError from '@/functions/api-error'
 import { cookies } from 'next/headers'
 
-export interface IRuling {
+export interface Ruling {
   id: number
   title: string
   content: string
   User: {
     name: string
   }
+  createdAt: string
+  updatedAt: string
 }
 
-export default async function allRulings() {
+export default async function ruling(id: string) {
   try {
     const token = cookies().get('token')?.value
     if (!token) throw new Error('Acesso negado.')
-    const { url } = RulingsGET()
+    const { url } = RulingGET(id)
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -31,7 +33,7 @@ export default async function allRulings() {
 
     if (!response.ok)
       throw new Error('Erro na busca dos entendimentos no banco de dados.')
-    const data = (await response.json()) as IRuling[]
+    const data = (await response.json()) as Ruling
 
     return { data, ok: true, error: '' }
   } catch (error: unknown) {

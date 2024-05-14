@@ -6,6 +6,12 @@ export function AuthRegister() {
     url: `${ApiUrl}/auth/register`
   }
 }
+// CURRENT USER
+export function CurrentUser() {
+  return {
+    url: `${ApiUrl}/user`
+  }
+}
 // LOGIN
 export function AuthLogin() {
   return {

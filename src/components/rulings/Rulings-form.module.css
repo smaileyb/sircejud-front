@@ -1,0 +1,39 @@
+.formContainer {
+  background: var(--bg-color-secondary);
+  border-radius: 10px;
+  padding: 1rem;
+  color: var(--bg-color-main);
+}
+
+.form h1 {  
+  margin-bottom: 1rem;
+}
+
+.form textarea{
+  background: #EEE;
+  border: 1px solid #EEE;
+  border-radius: 0.4rem;
+  display: block;
+  font-size: 1rem;
+  height: 400px;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  resize: none;
+  transition: 0.2s;
+  width: 100%;
+  font-family: var(--type-main);
+}
+
+.form textarea:is(:hover, :focus){
+  outline: none;
+  border-color: #FB1;
+  background: white;
+  box-shadow: 0 0 0 3px #FEA;
+}
+
+.label{
+  display: block;
+  font-size: 1rem;
+  line-height: 1;
+  padding-bottom: 0.5rem;
+}
