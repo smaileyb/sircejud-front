@@ -35,7 +35,9 @@ export default async function rulingNew(state: {}, formData: FormData) {
     })
 
     if (!response.ok)
-      throw new Error('Não foi possível editar o entendimento indicado.')
+      throw new Error(
+        'Não foi possível registrar o entendimento indicado. Verifique se já não há outro item com o mesmo título.'
+      )
     revalidateTag('ruling')
     const data = (await response.json()) as Ruling
 
