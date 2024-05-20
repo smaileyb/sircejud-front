@@ -1,6 +1,5 @@
 .rulings {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  padding: 2rem;
-  height: calc(100vh - 4rem);
+  grid-template-columns: 1fr 3fr;  
+  max-height: calc(100vh - 12rem);
 }

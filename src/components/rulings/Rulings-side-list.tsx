@@ -1,11 +1,11 @@
 'use client'
 import Link from 'next/link'
-import styles from './Rulings-side-list.module.css'
 import { usePathname } from 'next/navigation'
 import { IRuling } from './../../actions/all-rulings'
 import { AddIcon } from '@/icons/add-icon'
 import { ChangeEvent, useState } from 'react'
 import { SearchIcon } from '@/icons/search-icon'
+import styles from './Rulings-side-list.module.css'
 
 export default function RulingsSideList({ data }: { data: IRuling[] | null }) {
   const [search, setSearch] = useState('')
@@ -37,9 +37,7 @@ export default function RulingsSideList({ data }: { data: IRuling[] | null }) {
 
   return (
     <div className={styles.sideMenu}>
-      <Link href={'/'} className={styles.logo}>
-        <h1>SIRCE-JUD</h1>
-      </Link>
+      <h2 className={styles.logo}>ENTENDIMENTOS</h2>
       <div className={styles.searchBar}>
         <SearchIcon />
         <input
