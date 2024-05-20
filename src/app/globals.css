@@ -4,7 +4,7 @@
   --bg-color-secondary: #FEFEFE;
   --bg-color-card: #F3F5F7;
   --bg-selected-main: #323337;
-  --type-main: Helvetica, Arial, sans-serif; 
+  --type-main: var(--type-roboto); 
   --color-main: #84888A;
 }
 

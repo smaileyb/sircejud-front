@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { font_primary } from '@/functions/fonts'
 
 export const metadata: Metadata = {
   title: 'SIRCE-JUD',
@@ -14,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>
+      <body className={font_primary.variable}>
         <div className="App">
           <main className="AppBody">{children}</main>
           {/* Footer */}
