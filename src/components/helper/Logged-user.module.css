@@ -1,0 +1,34 @@
+.loggedUserContainer{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user{
+  color: var(--bg-color-secondary);
+}
+
+.logoutButton{
+  align-items: center;
+  background: transparent;
+  border: 2px solid var(--bg-color-secondary);
+  border-radius: 0.4rem;  
+  color: var(--bg-color-secondary);
+  display: flex;
+  font-weight: bold;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  transition: 0.3s;
+  cursor: pointer;  
+}
+
+.logoutButton:is(:hover, :focus) {
+  scale: 0.975;
+  background: var(--bg-color-secondary);
+  color: var(--bg-color-main);
+}
+
+.logoutButton:is(:hover, :focus) svg {
+  fill: var(--bg-color-main);
+}
+
