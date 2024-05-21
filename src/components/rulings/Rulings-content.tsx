@@ -22,8 +22,12 @@ export default async function RulingsContent({ id }: { id: string }) {
             {lastUpdate.toLocaleDateString()}
           </p>
         </div>
-        <div className={styles.iconsContainer}>
-          <Link href={`/rulings/${id}/edit`} className={styles.icon}>
+        <div className={`${styles.iconsContainer} animeLeft`}>
+          <Link
+            href={`/rulings/${id}/edit`}
+            className={`${styles.icon}`}
+            aria-label="Editar"
+          >
             <EditIcon />
             Editar
           </Link>

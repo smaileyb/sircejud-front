@@ -26,9 +26,9 @@
 
 .form textarea:is(:hover, :focus){
   outline: none;
-  border-color: #FB1;
+  border-color: #008BFE;
   background: white;
-  box-shadow: 0 0 0 3px #FEA;
+  box-shadow: 0 0 0 3px #86c7fc;
 }
 
 .label{
