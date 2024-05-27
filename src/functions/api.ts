@@ -61,3 +61,21 @@ export function RulingDELETE(id: string) {
     url: `${ApiUrl}/rulings/${id}`
   }
 }
+// POST NEW TOPIC
+export function TopicPOST(id: string) {
+  return {
+    url: `${ApiUrl}/rulings/${id}/topic`
+  }
+}
+// UPDATE TOPIC BY ID
+export function TopicUPDATE(id: string) {
+  return {
+    url: `${ApiUrl}/rulings/topic/${id}`
+  }
+}
+// DELETE TOPIC BY ID
+export function TopicDELETE(id: string) {
+  return {
+    url: `${ApiUrl}/rulings/topic/${id}`
+  }
+}

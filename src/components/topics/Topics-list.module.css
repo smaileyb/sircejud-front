@@ -1,0 +1,120 @@
+.topicsGeneral{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.topicsList{
+  border: 2px solid var(--bg-color-card);
+  border-radius: 5px;  
+  display: flex;
+  flex-direction: column;  
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-height: 350px;
+  max-height: 350px; 
+}
+
+.addButton{  
+  align-items: center;
+  background-color: #008BFE;
+  border-radius: 0.4rem;
+  border: 2px solid transparent;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  padding: 0.5rem 0.25rem;
+  color: var(--bg-color-secondary);
+  margin-left: 10px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.addButton:is(:hover, :focus){
+  border-color: #008BFE;
+  color: #008BFE;
+  background: var(--bg-color-secondary);
+}
+
+.addButton:is(:hover, :focus) svg {
+  fill: #008BFE;
+}
+
+.topicsList p {
+  margin: 1rem 0;
+  color: var(--color-main);
+  text-align: center;
+}
+
+.topicsList::-webkit-scrollbar {
+  width: 10px;
+  background: var(--bg-color-card);
+  
+}
+
+.topicsList::-webkit-scrollbar-thumb {
+  background: var(--bg-color-card);
+  border-radius: 3px; 
+}
+
+.topicsList::-webkit-scrollbar-track {
+  background:var(--bg-color-secondary);
+}
+
+.topicsListItem{
+  align-items: center;
+  border: 2px solid transparent;  
+  display: flex;
+  gap: 8px;
+  padding: 1rem 1rem;
+}
+
+.topicsListItem::before {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 8px;
+  background-color: #48F98A;
+  flex-shrink: 0;
+}
+
+.topicsListItem:is(:hover, :focus) {
+  background-color: var(--bg-color-card);
+}
+
+.topicsListItem button {
+  border: none;
+  background: transparent;
+  color: var(--bg-color-main);
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.topicContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;  
+  border-radius: 10px;
+  color: var(--bg-color-main);
+  border: 2px solid var(--bg-color-card);
+  border-radius: 5px;
+}
+
+.topicTitle{
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--bg-color-card);
+  font-size: 1rem;
+}
+
+.topicContent{      
+  margin: 0 1.5rem;
+  text-align: justify;
+}
+
+.topicUser{
+  align-self: flex-end;
+  margin: 0 1rem;
+  font-size: 0.75rem;
+}

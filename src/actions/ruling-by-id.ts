@@ -4,10 +4,19 @@ import { RulingGET } from '@/functions/api'
 import apiError from '@/functions/api-error'
 import { cookies } from 'next/headers'
 
+export interface Topic {
+  id: number
+  title: string
+  content: string
+  createdAt: string
+  updatedAt: string
+}
+
 export interface Ruling {
   id: number
   title: string
   content: string
+  Topics: Topic[]
   User: {
     name: string
   }

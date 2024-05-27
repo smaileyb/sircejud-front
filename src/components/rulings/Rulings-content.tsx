@@ -3,6 +3,7 @@ import styles from './Rulings-content.module.css'
 import Link from 'next/link'
 import EditIcon from '@/icons/edit-icon'
 import RulingDeleteButton from './Rulings-delete'
+import TopicsList from '../topics/Topics-list'
 
 export default async function RulingsContent({ id }: { id: string }) {
   if (id !== '0') {
@@ -12,27 +13,28 @@ export default async function RulingsContent({ id }: { id: string }) {
       <section className={styles.content}>
         <div className={styles.titleContainer}>
           <h1 className="animeLeft">{data?.title}</h1>
+          <div className={`${styles.iconsContainer} animeLeft`}>
+            <Link
+              href={`/rulings/${id}/edit`}
+              className={`${styles.icon}`}
+              aria-label="Editar"
+            >
+              <EditIcon />
+              Editar
+            </Link>
+            <RulingDeleteButton id={id} />
+          </div>
         </div>
         <div className={styles.contentContainer}>
           <p className="animeLeft">{data?.content}</p>
+          <div className={styles.userContainer}>
+            <p className="animeLeft">
+              Última atualização feita por {data?.User.name}, em{' '}
+              {lastUpdate.toLocaleDateString()}
+            </p>
+          </div>
         </div>
-        <div className={styles.userContainer}>
-          <p className="animeLeft">
-            Última atualização feita por {data?.User.name}, em{' '}
-            {lastUpdate.toLocaleDateString()}
-          </p>
-        </div>
-        <div className={`${styles.iconsContainer} animeLeft`}>
-          <Link
-            href={`/rulings/${id}/edit`}
-            className={`${styles.icon}`}
-            aria-label="Editar"
-          >
-            <EditIcon />
-            Editar
-          </Link>
-          <RulingDeleteButton id={id} />
-        </div>
+        {data && <TopicsList topics={data.Topics} rulingId={id} />}
       </section>
     )
   } else {
