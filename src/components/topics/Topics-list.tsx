@@ -5,6 +5,8 @@ import styles from './Topics-list.module.css'
 import { useState } from 'react'
 import Link from 'next/link'
 import { AddIcon } from '@/icons/add-icon'
+import EditIcon from '@/icons/edit-icon'
+import RulingDeleteButton from '../rulings/Rulings-delete'
 
 export default function TopicsList({
   topics,
@@ -29,7 +31,10 @@ export default function TopicsList({
   return (
     <div className={styles.topicsGeneral}>
       <ul className={styles.topicsList}>
-        <Link href={`/rulings/topic/new`} className={styles.addButton}>
+        <Link
+          href={`/rulings/${rulingId}/topic/new`}
+          className={styles.addButton}
+        >
           <AddIcon />
           Novo tópico
         </Link>
@@ -53,6 +58,16 @@ export default function TopicsList({
                 ? getTopicContent(currentTopic).title
                 : `Selecione um tópico`}
             </h2>
+            <div className={`${styles.iconsContainer} animeLeft`}>
+              <Link
+                href={`/rulings/${rulingId}/topic/${currentTopic}/edit`}
+                className={`${styles.icon}`}
+                aria-label="Editar"
+              >
+                <EditIcon />
+              </Link>
+              <RulingDeleteButton id={rulingId} />
+            </div>
           </div>
           <div className={styles.topicContent}>
             <p className="animeLeft">
