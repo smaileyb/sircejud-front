@@ -6,7 +6,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { AddIcon } from '@/icons/add-icon'
 import EditIcon from '@/icons/edit-icon'
-import RulingDeleteButton from '../rulings/Rulings-delete'
+import topicDelete from '@/actions/topic-delete'
+import { DeleteIcon } from '@/icons/delete-icon'
 
 export default function TopicsList({
   topics,
@@ -16,6 +17,7 @@ export default function TopicsList({
   rulingId: string
 }) {
   const [currentTopic, setCurrentTopic] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   function getTopicContent(id: number) {
     if (topics) {
@@ -26,6 +28,19 @@ export default function TopicsList({
       title: 'Tópico não encontrado.',
       content: 'Tópico não encontrado.'
     }
+  }
+
+  async function handleClick() {
+    setLoading(true)
+
+    const confirm = window.confirm(
+      'Tem certeza de que deseja deletar este tópico?'
+    )
+    if (confirm) {
+      await topicDelete(String(currentTopic))
+    }
+    setLoading(false)
+    setCurrentTopic(0)
   }
 
   return (
@@ -66,7 +81,16 @@ export default function TopicsList({
               >
                 <EditIcon />
               </Link>
-              <RulingDeleteButton id={rulingId} />
+              {/* Delete button */}
+              {loading ? (
+                <button className={styles.icon} disabled>
+                  <DeleteIcon />
+                </button>
+              ) : (
+                <button className={styles.icon} onClick={handleClick}>
+                  <DeleteIcon />
+                </button>
+              )}
             </div>
           </div>
           <div className={styles.topicContent}>
