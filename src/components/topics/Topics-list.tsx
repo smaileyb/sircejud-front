@@ -78,6 +78,7 @@ export default function TopicsList({
                 href={`/rulings/${rulingId}/topic/${currentTopic}/edit`}
                 className={`${styles.icon}`}
                 aria-label="Editar"
+                title="Editar tópico"
               >
                 <EditIcon />
               </Link>
@@ -87,7 +88,11 @@ export default function TopicsList({
                   <DeleteIcon />
                 </button>
               ) : (
-                <button className={styles.icon} onClick={handleClick}>
+                <button
+                  className={styles.icon}
+                  onClick={handleClick}
+                  title="Deletar tópico"
+                >
                   <DeleteIcon />
                 </button>
               )}

@@ -18,6 +18,7 @@ export default async function RulingsContent({ id }: { id: string }) {
               href={`/rulings/${id}/edit`}
               className={`${styles.icon}`}
               aria-label="Editar"
+              title="Editar"
             >
               <EditIcon />
               Editar

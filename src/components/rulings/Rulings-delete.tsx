@@ -10,7 +10,9 @@ export default function RulingDeleteButton({ id }: { id: string }) {
   async function handleClick() {
     setLoading(true)
 
-    const confirm = window.confirm('Tem certeza de que deseja deletar este entendimento?')
+    const confirm = window.confirm(
+      'Tem certeza de que deseja deletar este entendimento?'
+    )
     if (confirm) {
       await rulingDelete(id)
     }
@@ -25,7 +27,11 @@ export default function RulingDeleteButton({ id }: { id: string }) {
           Deletar
         </button>
       ) : (
-        <button className={styles.icon} onClick={handleClick}>
+        <button
+          className={styles.icon}
+          onClick={handleClick}
+          title="Deletar entendimento"
+        >
           <DeleteIcon />
           Deletar
         </button>
