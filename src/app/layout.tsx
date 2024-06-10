@@ -18,7 +18,6 @@ export default function RootLayout({
       <body className={font_primary.variable}>
         <div className="App">
           <main className="AppBody">{children}</main>
-          {/* Footer */}
         </div>
       </body>
     </html>
