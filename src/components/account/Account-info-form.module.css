@@ -1,0 +1,20 @@
+.formContainer {  
+  padding: 4rem;
+  width: 70%; 
+}
+
+.form h1 {  
+  margin-bottom: 1rem;
+}
+
+.emailAlert{
+  display: block;
+  font-size: 0.825rem;
+  margin-bottom: 1rem;
+}
+
+/* .form input[type=email]:not(:focus-within) + .emailAlert {
+  display: none;
+  margin-bottom: 1rem;
+} */
+

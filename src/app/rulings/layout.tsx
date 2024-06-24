@@ -11,12 +11,12 @@ export default async function RulingsLayout({
 }) {
   const { data } = await allRulings()
   return (
-    <>
+    <main>
       <Header />
       <section className={styles.rulings}>
         <RulingsSideList data={data} />
         {children}
       </section>
-    </>
+    </main>
   )
 }
