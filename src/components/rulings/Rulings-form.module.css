@@ -37,3 +37,7 @@
   line-height: 1;
   padding-bottom: 0.5rem;
 }
+
+.form button {
+  margin-right: 1rem;
+}

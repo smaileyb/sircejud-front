@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import styles from './Account-info-form.module.css'
 import userPasswordUpdate from '@/actions/user-password-update'
 import logout from '@/actions/logout'
+import { useRouter } from 'next/navigation'
 
 function FormButton() {
   const { pending } = useFormStatus()
@@ -36,6 +37,8 @@ export default function AccountPasswordForm() {
     if (state.ok) passwordChange()
   }, [state.ok])
 
+  const router = useRouter()
+
   const [currentPassword, setCurrentPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   return (
@@ -61,6 +64,7 @@ export default function AccountPasswordForm() {
         </span>
         <ErrorMessage error={state.error} />
         <FormButton />
+        <Button onClick={() => router.back()}>Cancelar</Button>
       </form>
     </div>
   )

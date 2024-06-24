@@ -6,6 +6,7 @@ import { useFormState, useFormStatus } from 'react-dom'
 import { useEffect, useState } from 'react'
 import styles from './Account-info-form.module.css'
 import userUpdate from '@/actions/user-data-update'
+import { useRouter } from 'next/navigation'
 
 function FormButton() {
   const { pending } = useFormStatus()
@@ -30,6 +31,8 @@ export default function AccountInfoForm() {
   useEffect(() => {
     if (state.ok) window.location.href = `/rulings/`
   }, [state.ok])
+
+  const router = useRouter()
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -57,6 +60,7 @@ export default function AccountInfoForm() {
         </span>
         <ErrorMessage error={state.error} />
         <FormButton />
+        <Button onClick={() => router.back()}>Cancelar</Button>
       </form>
     </div>
   )

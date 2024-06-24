@@ -8,6 +8,7 @@ import styles from '../rulings/Rulings-form.module.css'
 import { Topic } from '@/actions/ruling-by-id'
 import topicNew from '@/actions/topic-post'
 import topicUpdate from '@/actions/topic-put'
+import { useRouter } from 'next/navigation'
 
 function FormButton({ newRegister }: { newRegister?: boolean }) {
   const { pending } = useFormStatus()
@@ -47,6 +48,8 @@ export default function TopicsForm({
     if (state.ok) window.location.href = `/rulings/${rulingId}`
   }, [state.ok, rulingId])
 
+  const router = useRouter()
+
   const [title, setTitle] = useState(currentData?.title)
   const [content, setContent] = useState(currentData?.content)
   return (
@@ -82,6 +85,7 @@ export default function TopicsForm({
         <ErrorMessage error={state.error} />
 
         <FormButton newRegister={newRegister} />
+        <Button onClick={() => router.back()}>Cancelar</Button>
       </form>
     </div>
   )

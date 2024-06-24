@@ -10,8 +10,13 @@
 
 .emailAlert{
   display: block;
+  color: var(--color-main);
   font-size: 0.825rem;
   margin-bottom: 1rem;
+}
+
+.form button {
+  margin-right: 1rem;
 }
 
 
