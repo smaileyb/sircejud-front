@@ -1,7 +1,5 @@
+import AccountPasswordForm from '@/components/account/Account-password-form'
+
 export default async function PasswordPage() {
-  return (
-    <main>
-      <h1>Password</h1>
-    </main>
-  )
+  return <AccountPasswordForm />
 }
