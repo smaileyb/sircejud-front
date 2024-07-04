@@ -1,4 +1,5 @@
-export const ApiUrl = 'http://localhost:3030'
+// export const ApiUrl = 'http://localhost:3030'
+export const ApiUrl = 'https://sircejud-api.vercel.app'
 
 // NEW USER
 export function AuthRegister() {
