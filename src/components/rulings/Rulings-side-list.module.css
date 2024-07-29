@@ -95,12 +95,9 @@
   background:var(--bg-color-main);
 }
 
-.rulingsList li {
-  
+.rulingsList li {  
   border: 2px solid transparent;
-  cursor: pointer;
-  
-  
+  cursor: pointer;  
 }
 
 .rulingsList a {

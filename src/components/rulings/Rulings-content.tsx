@@ -31,7 +31,7 @@ export default async function RulingsContent({ id }: { id: string }) {
           <div className={styles.userContainer}>
             <p className="animeLeft">
               Última atualização feita por {data?.User.name}, em{' '}
-              {lastUpdate.toLocaleDateString()}
+              {lastUpdate.toLocaleDateString('pt-BR', { dateStyle: 'medium' })}
             </p>
           </div>
         </div>
