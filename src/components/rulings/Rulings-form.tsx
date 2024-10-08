@@ -1,7 +1,7 @@
 'use client'
-import Input from '../forms/input'
+
 import ErrorMessage from '../helper/error-message'
-import Button from '../forms/button'
+
 import { useFormState, useFormStatus } from 'react-dom'
 import { useEffect, useState } from 'react'
 import styles from './Rulings-form.module.css'
@@ -9,6 +9,10 @@ import { Ruling } from '@/actions/ruling-by-id'
 import rulingUpdate from '@/actions/ruling-put'
 import rulingNew from '@/actions/ruling-post'
 import { useRouter } from 'next/navigation'
+import Editor from '../editor/Editor'
+import { Button } from '../ui/button'
+import { Input } from '../ui/input'
+import { Label } from '../ui/label'
 
 function FormButton({ newRegister }: { newRegister?: boolean }) {
   const { pending } = useFormStatus()
@@ -43,8 +47,9 @@ export default function RulingsForm({
   })
 
   useEffect(() => {
-    if (state.ok && newRegister) window.location.href = `/rulings/`
-    if (state.ok && !newRegister) window.location.href = `/rulings/${id}`
+    if (state.ok && newRegister) window.location.href = `/dashboard/rulings/`
+    if (state.ok && !newRegister)
+      window.location.href = `/dashboard/rulings/${id}`
   }, [state.ok, id, newRegister])
 
   const router = useRouter()
@@ -59,27 +64,32 @@ export default function RulingsForm({
         ) : (
           <h1>Faça a edição do entendimento selecionado:</h1>
         )}
-
+        <Label htmlFor="title" className={styles.label}>
+          Título
+        </Label>
         <Input
-          label="Título"
           name="title"
           type="text"
           value={title}
           onChange={({ target }) => setTitle(target.value)}
+          className="mb-4"
         />
         <input type="hidden" name="id" id="id" value={id} />
-        <label htmlFor="content" className={styles.label}>
+        <input name="content" value={content} type="hidden" />
+        <Label htmlFor="content" className={styles.label}>
           Conteúdo
-        </label>
-        <textarea
+        </Label>
+        <Editor
+          className=""
           name="content"
           value={content}
-          onChange={({ target }) => setContent(target.value)}
+          onChange={setContent}
         />
         <ErrorMessage error={state.error} />
-
-        <FormButton newRegister={newRegister} />
-        <Button onClick={() => router.back()}>Cancelar</Button>
+        <div className="flex mt-4">
+          <FormButton newRegister={newRegister} />
+          <Button onClick={() => router.back()}>Cancelar</Button>
+        </div>
       </form>
     </div>
   )

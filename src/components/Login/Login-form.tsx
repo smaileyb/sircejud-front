@@ -39,7 +39,7 @@ export default function LoginForm() {
 
   useEffect(() => {
     if (state.ok) {
-      window.location.href = '/rulings'
+      window.location.href = '/dashboard'
     }
   }, [state.ok])
 
@@ -58,7 +58,7 @@ export default function LoginForm() {
   //   </div>
   // )
   return (
-    <Card className="self-center justify-self-center w-[500px]">
+    <Card className="self-center justify-self-center m-4 md:m-0 md:w-[500px] lg:min-w-[500px]">
       <CardHeader>
         <CardTitle>SIRCE-JUD | LOGIN </CardTitle>
         <CardDescription>Faça login para acessar os serviços</CardDescription>

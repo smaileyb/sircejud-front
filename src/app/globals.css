@@ -76,6 +76,32 @@ a{
   
 }
 
+.quill{
+  margin-bottom: 4rem;
+}
+
+.ql-container {
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  margin: auto;
+}
+
+.ql-toolbar {
+  border-radius: 5px 5px 0 0;
+}
+
+.ql-editor{
+  font-size: 1rem;  
+}
+
+.ql-editor:hover .quill{
+  border: 2px solid #84888A;
+}
+
+.ql-indent-1{
+  margin-left: 0.5rem;
+}
+
 @keyframes animeLeft {
   to{
     opacity: initial;

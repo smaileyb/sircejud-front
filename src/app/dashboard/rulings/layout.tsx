@@ -1,8 +1,7 @@
 import RulingsSideList from '@/components/rulings/Rulings-side-list'
 import { ReactNode } from 'react'
-import styles from './rulings.module.css'
 import allRulings from '@/actions/all-rulings'
-import Header from '@/components/Header'
+// import Header from '@/components/Header'
 
 export default async function RulingsLayout({
   children
@@ -11,12 +10,12 @@ export default async function RulingsLayout({
 }) {
   const { data } = await allRulings()
   return (
-    <>
-      <Header />
-      <section className={styles.rulings}>
+    <div className="bg-zinc-900 text-zinc-100">
+      {/* <Header /> */}
+      <section className="h-screen bg-zinc-900 text-zinc-100 grid grid-cols-[1fr_3fr]">
         <RulingsSideList data={data} />
         {children}
       </section>
-    </>
+    </div>
   )
 }

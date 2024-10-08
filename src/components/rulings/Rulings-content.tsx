@@ -15,7 +15,7 @@ export default async function RulingsContent({ id }: { id: string }) {
           <h1 className="animeLeft">{data?.title}</h1>
           <div className={`${styles.iconsContainer} animeLeft`}>
             <Link
-              href={`/rulings/${id}/edit`}
+              href={`/dashboard/rulings/${id}/edit`}
               className={`${styles.icon}`}
               aria-label="Editar"
               title="Editar"
@@ -27,7 +27,12 @@ export default async function RulingsContent({ id }: { id: string }) {
           </div>
         </div>
         <div className={styles.contentContainer}>
-          <p className="animeLeft">{data?.content}</p>
+          <div
+            className="animeLeft"
+            dangerouslySetInnerHTML={{
+              __html: data?.content as string | TrustedHTML
+            }}
+          />
           <div className={styles.userContainer}>
             <p className="animeLeft">
               Última atualização feita por {data?.User.name}, em{' '}

@@ -15,7 +15,7 @@ export interface Topic {
 export interface Ruling {
   id: number
   title: string
-  content: string
+  content: string | undefined
   Topics: Topic[]
   User: {
     name: string

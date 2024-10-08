@@ -7,6 +7,8 @@
   gap: 1.5rem;  
   flex: 1;
   padding: 2rem;
+  justify-content: space-between;
+  align-items: stretch; 
 }
 
 .titleContainer {
@@ -40,7 +42,7 @@
 .buttonContainer {
   padding: 0 1rem;
   display: flex;
-  gap: 1rem;
+  gap: 1rem;  
 }
 
 .button{  

@@ -5,15 +5,7 @@ import apiError from '@/functions/api-error'
 import { cookies } from 'next/headers'
 import loggedUser from './current-user'
 import { revalidateTag } from 'next/cache'
-
-export interface Ruling {
-  id: number
-  title: string
-  content: string
-  User: {
-    name: string
-  }
-}
+import { Ruling } from './ruling-by-id'
 
 export default async function rulingNew(state: {}, formData: FormData) {
   const title = formData.get('title') as string | null
