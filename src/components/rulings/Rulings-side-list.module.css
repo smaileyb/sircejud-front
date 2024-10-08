@@ -68,17 +68,6 @@
   box-shadow: 0 0 0 3px #86c7fc, 0 0 0 3px #008BFE;
 }
 
-.rulingsList {
-  /* font-size: 0.875rem;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;  
-  gap: 0.5rem;
-  overflow-y: scroll;
-  overflow-x: hidden;  
-  flex: 1; */
-}
-
 .rulingsList::-webkit-scrollbar {
   width: 10px;
   background: #27272a

@@ -174,3 +174,20 @@ a{
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  
+  .scroll-light::-webkit-scrollbar {
+    width: 10px;
+    background: #27272a
+  }
+  
+  .scroll-light::-webkit-scrollbar-thumb {
+    background: #a1a1aa;
+    border-radius: 3px; 
+  }
+  
+  .scroll-light::-webkit-scrollbar-track {
+    background:var(--bg-color-card);
+  }
+}
