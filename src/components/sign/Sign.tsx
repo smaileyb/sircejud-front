@@ -10,11 +10,22 @@ const Sign = () => {
 
   return (
     <Card className="self-center justify-self-center m-4 md:m-0 md:w-[500px] lg:min-w-[500px]">
-      {signIn ? <LoginForm /> : <EmailCheckSignUp />}
-      <CardFooter className="flex justify-end gap-4">
-        <h3>Ainda não está registrado? </h3>
-        <Button variant="ghost">Verifique seu e-mail</Button>
-      </CardFooter>
+      {signIn ? (
+        <>
+          <LoginForm />
+          <CardFooter className="flex justify-end gap-4">
+            <p>Ainda não está registrado? </p>
+            <Button
+              variant="ghost"
+              onClick={currentState => setSignIn(!currentState)}
+            >
+              Verifique seu e-mail
+            </Button>
+          </CardFooter>
+        </>
+      ) : (
+        <EmailCheckSignUp />
+      )}
     </Card>
   )
 }

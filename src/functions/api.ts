@@ -1,6 +1,12 @@
-// export const ApiUrl = 'http://localhost:3030'
-export const ApiUrl = 'https://sircejud-api.vercel.app'
+export const ApiUrl = 'http://localhost:3030'
+// export const ApiUrl = 'https://sircejud-api.vercel.app'
 
+// NEW USER EMAIL VERIFICATION
+export function EmailVerification() {
+  return {
+    url: `${ApiUrl}/auth`
+  }
+}
 // NEW USER
 export function AuthRegister() {
   return {

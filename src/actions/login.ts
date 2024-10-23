@@ -18,9 +18,9 @@ export default async function login(state: {}, formData: FormData) {
       },
       body: JSON.stringify({ email, password })
     })
-
-    if (!response.ok) throw new Error('Senha ou usuário inválidos.')
     const data = await response.json()
+
+    if (!response.ok) throw new Error(data.message)
 
     cookies().set('token', data.token, {
       httpOnly: true,

@@ -58,7 +58,7 @@ export default function LoginForm() {
   //   </div>
   // )
   return (
-    <Card className="self-center justify-self-center m-4 md:m-0 md:w-[500px] lg:min-w-[500px]">
+    <>
       {/* Transformar o atual componente em uma moldura genérica, extraindo a funcionalidade de login para outro componente. Criar um componente específico para lidar com a criação de uma nova conta. Implementar, aqui, uma lógica para avaliar se a pessoa pretende fazer login ou criar um novo usuário e renderizar o componente de acordo, usando valores armazenados em um estado */}
       <CardHeader>
         <CardTitle>SIRCE-JUD | LOGIN </CardTitle>
@@ -80,7 +80,7 @@ export default function LoginForm() {
           <FormButton />
         </form>
       </CardContent>
-    </Card>
+    </>
   )
 }
 

@@ -7,8 +7,10 @@ import ErrorMessage from '../helper/error-message'
 import { useEffect, useState } from 'react'
 import { CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 import { Label } from '../ui/label'
+import emailVerification from '@/actions/email-verification'
+import register from '@/actions/register'
 
-function FormButton() {
+function CheckButton() {
   const { pending } = useFormStatus()
   return (
     <>
@@ -23,10 +25,27 @@ function FormButton() {
   )
 }
 
+function RegisterButton(props: { onClick: () => void }) {
+  const { pending } = useFormStatus()
+  return (
+    <>
+      {pending ? (
+        <Button className="mt-4" disabled={pending}>
+          Aguarde..
+        </Button>
+      ) : (
+        <Button className="mt-4" {...props}>
+          Registrar
+        </Button>
+      )}
+    </>
+  )
+}
+
 const EmailCheckSignUp = () => {
   const [validEmail, setValidEmail] = useState(false)
-  const formStateAction = validEmail ? register : emailCheck
-  // TODO - implementar server actions para checagem do e-mail (se está na lista) e registrar dados do novo usuário
+  const [registering, setRegistering] = useState(false)
+  const formStateAction = validEmail ? register : emailVerification
 
   const [state, action] = useFormState(formStateAction, {
     ok: false,
@@ -37,9 +56,13 @@ const EmailCheckSignUp = () => {
   useEffect(() => {
     if (state.ok) {
       // Talvez alterar um estado se a verificação for positiva e com isso abrir um dialog box pro preenchimento dos demais dados?
-      setValidEmail(true)
+      if (!registering) {
+        setValidEmail(true)
+      } else {
+        window.location.href = '/'
+      }
     }
-  }, [state.ok])
+  }, [registering, state.ok])
   return (
     <>
       <CardHeader>
@@ -68,7 +91,11 @@ const EmailCheckSignUp = () => {
             </div>
           </div>
           <ErrorMessage error={state.error} />
-          <FormButton />
+          {validEmail ? (
+            <RegisterButton onClick={() => setRegistering(true)} />
+          ) : (
+            <CheckButton />
+          )}
         </form>
       </CardContent>
     </>

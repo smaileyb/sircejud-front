@@ -14,6 +14,7 @@ import {
   X
 } from 'lucide-react'
 import Link from 'next/link'
+import logout from '@/actions/logout'
 
 export function CollapsibleSideMenu() {
   const [isOpen, setIsOpen] = useState(true)
@@ -53,6 +54,10 @@ export function CollapsibleSideMenu() {
       href: '/dashboard/account'
     }
   ]
+
+  async function handleLogout() {
+    await logout()
+  }
 
   return (
     <div
@@ -165,6 +170,7 @@ export function CollapsibleSideMenu() {
               className={`w-full justify-start hover:bg-zinc-700 hover:text-zinc-50 transition-all duration-200 ${
                 isOpen ? 'px-4' : 'px-2'
               }`}
+              onClick={handleLogout}
             >
               <div
                 className={`group ${!isOpen && 'w-full flex justify-center'}`}

@@ -1,4 +1,5 @@
 import LoginForm from '@/components/Login/Login-form'
+import Sign from '@/components/sign/Sign'
 import Link from 'next/link'
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
           <h1>SIRCE-JUD</h1>
         </Link>
       </div>
-      <LoginForm />
+      <Sign />
     </section>
   )
 }
