@@ -8,7 +8,6 @@ import styles from './Rulings-side-list.module.css'
 import { Input } from '../ui/input'
 import { Search } from 'lucide-react'
 import { ScrollArea } from '../ui/scroll-area'
-import { Separator } from '../ui/separator'
 
 export default function RulingsSideList({ data }: { data: IRuling[] | null }) {
   const [search, setSearch] = useState('')
@@ -40,8 +39,8 @@ export default function RulingsSideList({ data }: { data: IRuling[] | null }) {
   }
 
   return (
-    <div className="flex flex-col px-4 bg-zinc-900 mt-8">
-      <div className="relative mb-4">
+    <div className="flex flex-col px-4 bg-zinc-900 self-start max-h-screen">
+      <div className="relative mt-8 mb-4">
         <Input
           type="text"
           placeholder="Pesquisar entendimentos..."
@@ -71,7 +70,7 @@ export default function RulingsSideList({ data }: { data: IRuling[] | null }) {
         Novo entendimento
       </Link>
       <ScrollArea
-        className={`text-sm font-bold flex flex-col overflow-y-scroll overflow-x-hidden flex-1 min-w-64 ${styles.rulingsList}`}
+        className={`text-sm font-bold flex flex-col h-screen overflow-y-scroll overflow-x-hidden min-w-64 mb-8 ${styles.rulingsList}`}
       >
         {obtainingListData().map(ruling => (
           <li

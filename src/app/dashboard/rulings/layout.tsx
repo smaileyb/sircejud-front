@@ -10,7 +10,7 @@ export default async function RulingsLayout({
 }) {
   const { data } = await allRulings()
   return (
-    <div className="bg-zinc-900 text-zinc-100">
+    <div className="bg-zinc-900 text-zinc-100 h-full">
       {/* <Header /> */}
       <section className="h-screen bg-zinc-900 text-zinc-100 grid grid-cols-[1fr_3fr]">
         <RulingsSideList data={data} />

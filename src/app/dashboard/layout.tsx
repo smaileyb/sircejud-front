@@ -10,7 +10,7 @@ export default async function DashboardLayout({
     <>
       <section className="flex h-screen transition-all duration-700">
         <CollapsibleSideMenu />
-        <div className="w-full">{children}</div>
+        <div className="w-full h-screen">{children}</div>
       </section>
     </>
   )
