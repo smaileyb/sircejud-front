@@ -43,20 +43,6 @@ export default function LoginForm() {
     }
   }, [state.ok])
 
-  // return (
-  //   <div className={`${styles.formContainer} flex items-center justify-center`}>
-  //     <form action={action} className={styles.form}>
-  //       <h1>Faça login para acessar os serviços:</h1>
-  //       <Input label="E-mail" name="email" type="text" />
-  //       <Input label="Senha" name="password" type="password" />
-  //       <ErrorMessage error={state.error} />
-  //       <FormButton />
-  //       {/* <Link href={`/login/lost`} className={styles.lost}>
-  //         Perdeu a senha?
-  //       </Link> */}
-  //     </form>
-  //   </div>
-  // )
   return (
     <>
       {/* Transformar o atual componente em uma moldura genérica, extraindo a funcionalidade de login para outro componente. Criar um componente específico para lidar com a criação de uma nova conta. Implementar, aqui, uma lógica para avaliar se a pessoa pretende fazer login ou criar um novo usuário e renderizar o componente de acordo, usando valores armazenados em um estado */}
@@ -83,5 +69,3 @@ export default function LoginForm() {
     </>
   )
 }
-
-// TODO Clean-up the component and implement a sign-up page
