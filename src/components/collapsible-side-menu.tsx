@@ -34,12 +34,12 @@ export function CollapsibleSideMenu() {
       icon: <FileText />,
       text: 'Documentos',
       href: '/dashboard/documents'
-    },
-    {
-      icon: <GavelIcon />,
-      text: 'Jurisprudência',
-      href: '/dashboard/juris-search'
     }
+    // {
+    //   icon: <GavelIcon />,
+    //   text: 'Jurisprudência',
+    //   href: '/dashboard/juris-search'
+    // }
   ]
 
   const bottomMenuItems = [

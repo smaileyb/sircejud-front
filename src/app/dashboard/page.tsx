@@ -32,13 +32,13 @@ const dashboardItems = [
     description: 'Gerencie documentos importantes',
     icon: FileText,
     href: '/dashboard/documents'
-  },
-  {
-    title: 'Jurisprudência',
-    description: 'Consulte a jurisprudência relevante',
-    icon: GavelIcon,
-    href: '/dashboard/juris-search'
   }
+  // {
+  //   title: 'Jurisprudência',
+  //   description: 'Consulte a jurisprudência relevante',
+  //   icon: GavelIcon,
+  //   href: '/dashboard/juris-search'
+  // }
 ]
 
 export const Dashboard = () => {
