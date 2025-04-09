@@ -1,5 +1,9 @@
-import RulingsForm from '@/components/rulings/Rulings-form'
+import dynamic from 'next/dynamic'
 
-export default async function NewRuling() {
+const RulingsForm = dynamic(() => import('@/components/rulings/Rulings-form'), {
+  ssr: false
+})
+
+export default function NewRuling() {
   return <RulingsForm newRegister />
 }
