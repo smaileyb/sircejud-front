@@ -6,13 +6,7 @@ import {
   CardDescription,
   CardContent
 } from '@/components/ui/card'
-import {
-  ScrollText,
-  BookOpen,
-  FileText,
-  GavelIcon,
-  ArrowRight
-} from 'lucide-react'
+import { ScrollText, BookOpen, FileText, ArrowRight } from 'lucide-react'
 
 const dashboardItems = [
   {
@@ -41,7 +35,7 @@ const dashboardItems = [
   // }
 ]
 
-export const Dashboard = () => {
+export default function Dashboard() {
   return (
     <div className="container mx-auto p-8 bg-zinc-900 animeLeft">
       <h1 className="text-4xl font-bold text-center text-zinc-100 mt-8 mb-12">
@@ -74,5 +68,3 @@ export const Dashboard = () => {
     </div>
   )
 }
-
-export default Dashboard
